@@ -1,0 +1,652 @@
+{
+  "base": "http://localhost:8766/elvare-luxury-fashion/",
+  "run_at": "2026-11-06 04:00:43",
+  "browser": "Google Chrome (headless) via Playwright",
+  "passed": 107,
+  "total": 107,
+  "seconds": 196.3,
+  "results": [
+    {
+      "area": "Pages",
+      "test": "46 HTML files found",
+      "pass": true,
+      "detail": "['404.html', 'about.html', 'cart.html', 'checkout.html', 'collections.html', 'contact.html', 'index.html', 'men.html', 'privacy.html', 'shipping.html', 'shop.html', 'terms.html', 'wishlist.html', 'women.html', 'product/alba-wide-leg-trouser.html', 'product/aldric-merino-rollneck.html', 'product/arc-"
+    },
+    {
+      "area": "Pages",
+      "test": "All pages return 200 with no failed requests (mobile)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "JavaScript",
+      "test": "No console/page errors on any page (mobile)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "Responsive",
+      "test": "No horizontal overflow on any page (mobile 375px)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "Pages",
+      "test": "All pages return 200 with no failed requests (tablet)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "JavaScript",
+      "test": "No console/page errors on any page (tablet)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "Responsive",
+      "test": "No horizontal overflow on any page (tablet 768px)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "Pages",
+      "test": "All pages return 200 with no failed requests (desktop)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "JavaScript",
+      "test": "No console/page errors on any page (desktop)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "Responsive",
+      "test": "No horizontal overflow on any page (desktop 1440px)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "Images",
+      "test": "All rendered images load after scrolling (desktop)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "Links",
+      "test": "All 46 unique internal link targets resolve",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "Links",
+      "test": "External CTAs point only to virellionapex.com",
+      "pass": true,
+      "detail": "{'https://virellionapex.com/'}"
+    },
+    {
+      "area": "Browse",
+      "test": "Women page lists 16 products",
+      "pass": true,
+      "detail": "16"
+    },
+    {
+      "area": "Category nav",
+      "test": "Dresses tab shows only dresses (3)",
+      "pass": true,
+      "detail": "['DRESSES', 'DRESSES', 'DRESSES']"
+    },
+    {
+      "area": "Category nav",
+      "test": "URL reflects category (?cat=dresses)",
+      "pass": true,
+      "detail": "http://localhost:8766/elvare-luxury-fashion/women.html?cat=dresses"
+    },
+    {
+      "area": "Sorting",
+      "test": "Price low→high is ascending",
+      "pass": true,
+      "detail": "[135, 165, 178, 195, 230, 240, 245, 250, 260, 265, 295, 320, 385, 420, 540, 780]"
+    },
+    {
+      "area": "Sorting",
+      "test": "Price high→low is descending",
+      "pass": true,
+      "detail": "[780, 540, 420, 385, 320, 295, 265, 260, 250, 245, 240, 230, 195, 178, 165, 135]"
+    },
+    {
+      "area": "Sorting",
+      "test": "Newest sorts by date added",
+      "pass": true,
+      "detail": "['EW-106', 'EW-101', 'EW-114', 'EW-110']"
+    },
+    {
+      "area": "Sorting",
+      "test": "Popularity sorts by popularity score",
+      "pass": true,
+      "detail": "['EW-106', 'EW-114', 'EW-101', 'EW-110']"
+    },
+    {
+      "area": "Filtering",
+      "test": "Price $200–$300 filter",
+      "pass": true,
+      "detail": "[250, 245, 230, 240, 295, 265, 260]"
+    },
+    {
+      "area": "Filtering",
+      "test": "Size 38 filter (footwear only)",
+      "pass": true,
+      "detail": "['EW-116']"
+    },
+    {
+      "area": "Filtering",
+      "test": "Colour 'Champagne' filter",
+      "pass": true,
+      "detail": "['EW-101', 'EW-112', 'EW-105', 'EW-115']"
+    },
+    {
+      "area": "Filtering",
+      "test": "Impossible combination shows empty state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Filtering",
+      "test": "Clear filters restores all 16",
+      "pass": true,
+      "detail": "16"
+    },
+    {
+      "area": "Category nav",
+      "test": "Men ?cat=outerwear deep link restores filter (2 coats)",
+      "pass": true,
+      "detail": "['Varenne Camel Overcoat', 'Harbor Quilted Field Coat']"
+    },
+    {
+      "area": "Collections",
+      "test": "shop.html?collection=evening shows the Evening Edit",
+      "pass": true,
+      "detail": "6"
+    },
+    {
+      "area": "Search",
+      "test": "Search 'coat' returns coats",
+      "pass": true,
+      "detail": "['Varenne Camel Overcoat', 'Valère Double-Faced Wool Coat', 'Harbor Quilted Field Coat', 'Aldric Merino Rollneck', 'Riviera Cropped Tailored Jacket']"
+    },
+    {
+      "area": "Search",
+      "test": "Search 'silk' returns silk pieces",
+      "pass": true,
+      "detail": "['Céleste Silk Slip Dress', 'Inès Silk Blouse', 'Lumen Silk Square Scarf', 'Odile Ribbed Cardigan']"
+    },
+    {
+      "area": "Search",
+      "test": "Search with no match shows empty state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Search",
+      "test": "Header search overlay shows live suggestions",
+      "pass": true,
+      "detail": "3"
+    },
+    {
+      "area": "Search",
+      "test": "Submitting header search opens results page",
+      "pass": true,
+      "detail": "http://localhost:8766/elvare-luxury-fashion/shop.html?q=cashmere"
+    },
+    {
+      "area": "Product",
+      "test": "Add to bag without size shows validation error",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Colour selection",
+      "test": "Selecting Obsidian swaps product image and label",
+      "pass": true,
+      "detail": "../assets/img/products/celeste-silk-slip-dress-obsidian-960.webp"
+    },
+    {
+      "area": "Gallery",
+      "test": "Thumbnail switches main image to detail view",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Gallery",
+      "test": "Next arrow cycles the gallery",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Size selection",
+      "test": "Selecting size M updates state",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Cart",
+      "test": "Add 2 × dress → bag count 2",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "area": "Cart drawer",
+      "test": "Cart drawer opens after add",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Cart",
+      "test": "Line stores chosen colour and size",
+      "pass": true,
+      "detail": "Obsidian · Size M"
+    },
+    {
+      "area": "Accessibility",
+      "test": "Escape closes the cart drawer",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Size guide",
+      "test": "Size guide modal opens, tabs switch, Escape closes",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Recently viewed",
+      "test": "Recently viewed shows previously visited product",
+      "pass": true,
+      "detail": "['Céleste Silk Slip Dress']"
+    },
+    {
+      "area": "Recommendations",
+      "test": "Related products rail is populated",
+      "pass": true,
+      "detail": "8"
+    },
+    {
+      "area": "Quick view",
+      "test": "Quick view validates size then adds to bag",
+      "pass": true,
+      "detail": "4"
+    },
+    {
+      "area": "Persistence",
+      "test": "Bag persists after reload (localStorage)",
+      "pass": true,
+      "detail": "4"
+    },
+    {
+      "area": "Persistence",
+      "test": "3 distinct lines stored in localStorage",
+      "pass": true,
+      "detail": "3"
+    },
+    {
+      "area": "Totals",
+      "test": "Subtotal $1,780 correct",
+      "pass": true,
+      "detail": "Your order qualifies for complimentary standard shipping | Subtotal | $1,780.00 | Shipping (standard, est.) | Complimentary | Estimated tax (8.25% demo rate) | $146.85 | Total | $1,926.85 USD | PROCEED TO CHECKOUT |  | Shipping method is chosen at checkout. Tax is shown at a flat demonstration rate."
+    },
+    {
+      "area": "Totals",
+      "test": "Free standard shipping applied over $500",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Totals",
+      "test": "Tax 8.25% = $146.85",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Totals",
+      "test": "Grand total = subtotal + shipping + tax",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Cart",
+      "test": "Decrease quantity updates count (4→3)",
+      "pass": true,
+      "detail": "3"
+    },
+    {
+      "area": "Cart",
+      "test": "Typing quantity 3 updates line (count 5)",
+      "pass": true,
+      "detail": "5"
+    },
+    {
+      "area": "Cart",
+      "test": "Remove line works (count 4)",
+      "pass": true,
+      "detail": "4"
+    },
+    {
+      "area": "Totals",
+      "test": "Totals recalculate after edits",
+      "pass": true,
+      "detail": "{'subtotal': 3055, 'shipping': 0, 'tax': 252.04, 'total': 3307.04, 'method': 'standard'}"
+    },
+    {
+      "area": "Totals",
+      "test": "Under $500: standard $25, express $35, tax on $65",
+      "pass": true,
+      "detail": "[{'subtotal': 65, 'shipping': 25, 'tax': 5.36, 'total': 95.36, 'method': 'standard'}, {'subtotal': 65, 'shipping': 35, 'tax': 5.36, 'total': 105.36, 'method': 'express'}]"
+    },
+    {
+      "area": "Checkout",
+      "test": "Empty information step shows field errors",
+      "pass": true,
+      "detail": "7"
+    },
+    {
+      "area": "Form validation",
+      "test": "Invalid email and ZIP are rejected",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Checkout",
+      "test": "Valid information advances to Delivery",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Checkout",
+      "test": "Delivery option updates summary (Express $35)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Checkout",
+      "test": "Payment step offers 3 simulated methods, no card inputs",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Checkout",
+      "test": "Order cannot be placed without accepting demo terms",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Checkout",
+      "test": "Confirmation shows demo order number ELV-YYMMDD-XXXX",
+      "pass": true,
+      "detail": "ELV-261106-UQ25"
+    },
+    {
+      "area": "Checkout",
+      "test": "Receipt total matches bag total with express",
+      "pass": true,
+      "detail": "3342.04"
+    },
+    {
+      "area": "Checkout",
+      "test": "Receipt is labelled as a demonstration",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Checkout",
+      "test": "Bag is emptied after order",
+      "pass": true,
+      "detail": "0"
+    },
+    {
+      "area": "Checkout",
+      "test": "Printable receipt button present (window.print)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Checkout",
+      "test": "Print stylesheet hides header/footer",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Checkout",
+      "test": "Last demo receipt can be reopened from empty checkout",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Wishlist",
+      "test": "Heart toggles add to wishlist (count 2)",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "area": "Wishlist",
+      "test": "Wishlist page lists saved items",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Wishlist",
+      "test": "Removing from wishlist page updates list",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Wishlist",
+      "test": "Wishlist persists after reload",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Newsletter",
+      "test": "Newsletter rejects invalid and confirms valid email (demo)",
+      "pass": true,
+      "detail": "Thank you — reader@example.com is subscribed in this demonstration (saved in your browser only; no email will be sent)."
+    },
+    {
+      "area": "Form validation",
+      "test": "Contact form flags required fields",
+      "pass": true,
+      "detail": "5"
+    },
+    {
+      "area": "Form validation",
+      "test": "Contact form validates order number format",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Form validation",
+      "test": "Valid contact form shows honest demo confirmation",
+      "pass": true,
+      "detail": "Thank you, Noor. Your message passed validation (reference MSG-4T03MN). As this is a demonstration website, it has not been sent to anyone."
+    },
+    {
+      "area": "FAQ",
+      "test": "FAQ accordions expand",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "FAQ",
+      "test": "FAQ item opens on click",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Privacy",
+      "test": "'Clear demo data' empties wishlist",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Mobile nav",
+      "test": "Desktop nav hidden, menu button visible at 375px",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Mobile nav",
+      "test": "Menu drawer opens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Mobile nav",
+      "test": "Submenu link navigates to Women › Knitwear",
+      "pass": true,
+      "detail": "http://localhost:8766/elvare-luxury-fashion/women.html?cat=knitwear"
+    },
+    {
+      "area": "Mobile filters",
+      "test": "Filter drawer opens and closes on mobile",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Responsive",
+      "test": "Product grid is 2 columns on mobile",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "area": "Touch targets",
+      "test": "Interactive controls ≥ 36px on mobile (most ≥ 44px)",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "Mobile cart",
+      "test": "Add to bag on mobile opens drawer",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Back to top",
+      "test": "Back-to-top appears after scrolling",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Back to top",
+      "test": "Back-to-top returns to top",
+      "pass": true,
+      "detail": "11"
+    },
+    {
+      "area": "Responsive",
+      "test": "Tablet 768px grid shows 2 columns with filter drawer",
+      "pass": true,
+      "detail": "2"
+    },
+    {
+      "area": "SEO/A11y",
+      "test": "Every page: one h1, description, canonical, OG + Twitter tags, alt on all images, labelled inputs, named buttons, valid JSON-LD",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "SEO",
+      "test": "Page titles are unique",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "SEO",
+      "test": "Product page has Product + BreadcrumbList JSON-LD",
+      "pass": true,
+      "detail": "['Product', 'BreadcrumbList']"
+    },
+    {
+      "area": "Keyboard",
+      "test": "First Tab focuses the skip link",
+      "pass": true,
+      "detail": "skip-link"
+    },
+    {
+      "area": "Keyboard",
+      "test": "Skip link moves focus to main content",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Keyboard",
+      "test": "Arrow keys move through size radio group",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Keyboard",
+      "test": "Arrow keys browse the image gallery",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "area": "Keyboard",
+      "test": "Focus is trapped inside open cart drawer",
+      "pass": true,
+      "detail": "[True, True, True, True, True, True, True, True]"
+    },
+    {
+      "area": "Deployment",
+      "test": "sitemap.xml served",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "area": "Deployment",
+      "test": "robots.txt served",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "area": "Deployment",
+      "test": "site.webmanifest served",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "area": "Deployment",
+      "test": "favicon.svg served",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "area": "Deployment",
+      "test": ".nojekyll served",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "area": "Deployment",
+      "test": "assets/img/og/elvare-og.jpg served",
+      "pass": true,
+      "detail": "200"
+    },
+    {
+      "area": "SEO",
+      "test": "Sitemap lists home, category and all 32 product URLs",
+      "pass": true,
+      "detail": "42"
+    },
+    {
+      "area": "404",
+      "test": "Custom 404 renders styled with working assets at nested path",
+      "pass": true,
+      "detail": "[]"
+    },
+    {
+      "area": "404",
+      "test": "404 'Return home' link resolves to site home",
+      "pass": true,
+      "detail": "http://localhost:8766/elvare-luxury-fashion/index.html"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "ÉLVARÉ — The Art of Modern Luxury",
+  "short_name": "ÉLVARÉ",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F5F1E9",
+  "theme_color": "#111111",
+  "description": "ÉLVARÉ luxury fashion house — a Virellion Apex demonstration store.",
+  "icons": [
+    {
+      "src": "assets/brand/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/brand/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
