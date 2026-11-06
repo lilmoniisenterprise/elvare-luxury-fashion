@@ -71,7 +71,7 @@ Python 3.10+ with Pillow, NumPy, OpenCV, fontTools and Playwright:
 
 ```bash
 python3 tools/build_brand.py    # logo SVGs + self-hosted fonts
-python3 tools/build_images.py   # product + campaign imagery (≈3 min)
+python3 tools/build_photos.py SRC  # crop + encode photography from downloaded originals (≈1 min)
 python3 tools/build_icons.py    # favicons, app icons, OG image
 python3 tools/build_site.py     # all HTML, products.js, sitemap, robots, manifest
 python3 tools/qa_test.py http://localhost:8766/elvare-luxury-fashion/   # QA suite
@@ -79,11 +79,19 @@ python3 tools/qa_test.py http://localhost:8766/elvare-luxury-fashion/   # QA sui
 
 The product catalog lives in `tools/catalog.py` (single source of truth for pages, data and images).
 
-## Imagery — important note
+## Photography
 
-The build environment had no internet access, so stock or licensed photography could not be sourced. All product and campaign imagery was **rendered originally for this project** (`tools/build_images.py`) in a consistent minimalist editorial illustration style: studio still-lifes for products (every colourway) and architectural light-and-shadow scenes for campaigns. It contains no third-party logos or copyrighted material.
+All product and campaign images are **real fashion photographs from [Unsplash](https://unsplash.com)**, used under the [Unsplash License](https://unsplash.com/license) and **self-hosted** in this repository (no hotlinking). Every photographer is credited on the site's **Photo Credits** page (`credits.html`, linked in the footer) and in `tools/photo_credits.json`.
 
-To upgrade to real photography, replace files one-for-one keeping the same names and sizes (4:5 ratio for products at 480 and 960 px wide; campaign sizes as in `assets/img/campaign/`). No code changes are needed.
+How the set was produced (v1.1.0):
+
+- **Checked by eye.** Every candidate was viewed at full resolution before use. Photos were rejected for any visible brand mark: card-network logos, a designer-style lapel pin, embossed maker's stamps on bags, shoes and card holders, a check-pattern designer bag, sunglasses text, garment labels and shop signage.
+- **Product matches its name.** Each colourway image shows that garment type in that colour. Where no honest match existed, the colourway was removed or renamed (for example Céleste is now Champagne, Obsidian and Garnet), and six products were renamed to match their photography: Riviera Tailored Jacket, Margaux Pleated Midi Skirt, Delmar Linen Band-Collar Shirt, Teodor Wool Cardigan, Varenne Wool Overcoat and Harbor Quilted Jacket. Descriptions and details were edited to match.
+- **Crops.** Products are 4:5 (480 × 600 and 960 × 1200 WebP). The gallery's *alternate* and *detail* views are closer crops of the default colourway's photo. Campaign heroes are 16:9 with a 1100 × 1400 portrait companion for phones, the seasonal banner is 2:1, and collection and editorial tiles are 4:5.
+- **File names are unchanged** (`<product-slug>-<colour>`, `-alt`, `-detail`, and the existing campaign names), so the site code didn't change.
+- **Rebuild:** download each id in `tools/photo_credits.json` from Unsplash as `<id>.jpg` (about 2400 px) into a folder, then run `python3 tools/build_photos.py <folder>`. Crop centres and zoom levels live in the same JSON. The originals are not committed.
+
+The garments pictured are by other makers and are shown only to demonstrate the store. ÉLVARÉ and its products remain fictional. For a real client, replace the photos with the brand's own photography using the same file names.
 
 ## Demonstration disclosures
 
@@ -94,9 +102,10 @@ To upgrade to real photography, replace files one-for-one keeping the same names
 
 ## Production upgrade path
 
-For a live store: a hosted commerce/payment provider (e.g. Shopify Storefront API or Stripe Checkout) for PCI-compliant payments, a serverless function or form service for contact/newsletter, a headless CMS or commerce backend for inventory, and licensed photography. Virellion Apex can scope this: [Request a Similar Website](https://virellionapex.com).
+For a live store: a hosted commerce/payment provider (e.g. Shopify Storefront API or Stripe Checkout) for PCI-compliant payments, a serverless function or form service for contact/newsletter, a headless CMS or commerce backend for inventory, and the brand's own product photography. Virellion Apex can scope this: [Request a Similar Website](https://virellionapex.com).
 
 ## Credits & licences
 
 - Display face: Latin Modern Roman (GUST Font License). Text face: Inter (SIL Open Font License). Both self-hosted.
-- Design, development, brand and imagery: Virellion Apex, 2026.
+- Photography: Unsplash contributors under the Unsplash License — full list on `credits.html` and in `tools/photo_credits.json`.
+- Design, development and brand identity: Virellion Apex, 2026.

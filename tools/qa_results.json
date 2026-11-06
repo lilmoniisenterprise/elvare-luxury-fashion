@@ -1,16 +1,16 @@
 {
   "base": "http://localhost:8766/elvare-luxury-fashion/",
-  "run_at": "2026-11-06 04:00:43",
+  "run_at": "2026-11-06 05:14:34",
   "browser": "Google Chrome (headless) via Playwright",
   "passed": 107,
   "total": 107,
-  "seconds": 196.3,
+  "seconds": 196.4,
   "results": [
     {
       "area": "Pages",
-      "test": "46 HTML files found",
+      "test": "47 HTML files found",
       "pass": true,
-      "detail": "['404.html', 'about.html', 'cart.html', 'checkout.html', 'collections.html', 'contact.html', 'index.html', 'men.html', 'privacy.html', 'shipping.html', 'shop.html', 'terms.html', 'wishlist.html', 'women.html', 'product/alba-wide-leg-trouser.html', 'product/aldric-merino-rollneck.html', 'product/arc-"
+      "detail": "['404.html', 'about.html', 'cart.html', 'checkout.html', 'collections.html', 'contact.html', 'credits.html', 'index.html', 'men.html', 'privacy.html', 'shipping.html', 'shop.html', 'terms.html', 'wishlist.html', 'women.html', 'product/alba-wide-leg-trouser.html', 'product/aldric-merino-rollneck.html"
     },
     {
       "area": "Pages",
@@ -74,7 +74,7 @@
     },
     {
       "area": "Links",
-      "test": "All 46 unique internal link targets resolve",
+      "test": "All 47 unique internal link targets resolve",
       "pass": true,
       "detail": "[]"
     },
@@ -142,7 +142,7 @@
       "area": "Filtering",
       "test": "Colour 'Champagne' filter",
       "pass": true,
-      "detail": "['EW-101', 'EW-112', 'EW-105', 'EW-115']"
+      "detail": "['EW-101', 'EW-105']"
     },
     {
       "area": "Filtering",
@@ -160,7 +160,7 @@
       "area": "Category nav",
       "test": "Men ?cat=outerwear deep link restores filter (2 coats)",
       "pass": true,
-      "detail": "['Varenne Camel Overcoat', 'Harbor Quilted Field Coat']"
+      "detail": "['Varenne Wool Overcoat', 'Harbor Quilted Jacket']"
     },
     {
       "area": "Collections",
@@ -170,9 +170,9 @@
     },
     {
       "area": "Search",
-      "test": "Search 'coat' returns coats",
+      "test": "Search 'coat' returns the coats first",
       "pass": true,
-      "detail": "['Varenne Camel Overcoat', 'Valère Double-Faced Wool Coat', 'Harbor Quilted Field Coat', 'Aldric Merino Rollneck', 'Riviera Cropped Tailored Jacket']"
+      "detail": "['Varenne Wool Overcoat', 'Valère Double-Faced Wool Coat', 'Aldric Merino Rollneck', 'Riviera Tailored Jacket']"
     },
     {
       "area": "Search",
@@ -382,7 +382,7 @@
       "area": "Checkout",
       "test": "Confirmation shows demo order number ELV-YYMMDD-XXXX",
       "pass": true,
-      "detail": "ELV-261106-UQ25"
+      "detail": "ELV-261106-C7GD"
     },
     {
       "area": "Checkout",
@@ -466,7 +466,7 @@
       "area": "Form validation",
       "test": "Valid contact form shows honest demo confirmation",
       "pass": true,
-      "detail": "Thank you, Noor. Your message passed validation (reference MSG-4T03MN). As this is a demonstration website, it has not been sent to anyone."
+      "detail": "Thank you, Noor. Your message passed validation (reference MSG-4VN3N1). As this is a demonstration website, it has not been sent to anyone."
     },
     {
       "area": "FAQ",
@@ -538,7 +538,7 @@
       "area": "Back to top",
       "test": "Back-to-top returns to top",
       "pass": true,
-      "detail": "11"
+      "detail": "13"
     },
     {
       "area": "Responsive",
@@ -634,7 +634,7 @@
       "area": "SEO",
       "test": "Sitemap lists home, category and all 32 product URLs",
       "pass": true,
-      "detail": "42"
+      "detail": "43"
     },
     {
       "area": "404",

@@ -47,7 +47,8 @@
   var Cart = {
     items: function () {
       // drop lines whose product no longer exists (defensive against stale storage)
-      return store.get('cart', []).filter(function (l) { return byId[l.id] && l.qty > 0; });
+      // lines whose product or colourway no longer exists (e.g. after a catalogue update) are dropped
+      return store.get('cart', []).filter(function (l) { return byId[l.id] && l.qty > 0 && byId[l.id].colors.some(function (c) { return c.name === l.color; }); });
     },
     save: function (items) { store.set('cart', items); emit(); },
     add: function (id, color, size, qty) {

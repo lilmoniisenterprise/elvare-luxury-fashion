@@ -166,7 +166,7 @@ def test_listing(browser):
     # search
     pg.goto(BASE + "shop.html?q=coat", wait_until="networkidle")
     names = pg.locator("[data-grid] .card__name").all_inner_texts()
-    record("Search", "Search 'coat' returns coats", len(names) >= 3 and all(("coat" in x.lower()) or ("overcoat" in x.lower()) for x in names[:3]), names)
+    record("Search", "Search 'coat' returns the coats first", len(names) >= 2 and all("coat" in x.lower() for x in names[:2]), names)
     pg.goto(BASE + "shop.html?q=silk", wait_until="networkidle")
     record("Search", "Search 'silk' returns silk pieces", n() >= 4, pg.locator("[data-grid] .card__name").all_inner_texts())
     pg.goto(BASE + "shop.html?q=zzzz", wait_until="networkidle")
@@ -214,11 +214,11 @@ def test_product_cart_checkout(browser):
     pg.keyboard.press("Escape")
     record("Size guide", "Size guide modal opens, tabs switch, Escape closes", ok and ok2 and pg.locator("#size-guide.is-open").count() == 0, "")
     # recently viewed
-    pg.goto(BASE + "product/varenne-camel-overcoat.html", wait_until="networkidle")
+    pg.goto(BASE + "product/varenne-wool-overcoat.html", wait_until="networkidle")
     rv = pg.locator("[data-recent] .card__name").all_inner_texts()
     record("Recently viewed", "Recently viewed shows previously visited product", "Céleste Silk Slip Dress" in rv, rv)
     record("Recommendations", "Related products rail is populated", pg.locator("#rail-related .card").count() >= 4, pg.locator("#rail-related .card").count())
-    pg.click("[data-size='L']"); pg.click("[data-color='Navy']"); pg.click("[data-add-to-cart]")
+    pg.click("[data-size='L']"); pg.click("[data-color='Stone']"); pg.click("[data-add-to-cart]")
     pg.wait_for_timeout(200); pg.keyboard.press("Escape")
     # quick view from listing
     pg.goto(BASE + "men.html", wait_until="networkidle")

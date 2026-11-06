@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BASE_URL = "https://lilmoniisenterprise.github.io/elvare-luxury-fashion/"
 BASE_PATH = "/elvare-luxury-fashion/"   # used only by 404.html, which GitHub Pages serves at any depth
 VA = "https://virellionapex.com"
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 BUILD_DATE = "2026-11-06"
 
 PRODUCTS = products()
@@ -24,6 +24,24 @@ BY_ID = {p["id"]: p for p in PRODUCTS}
 CAT_LABEL = {k: v for g in CATEGORIES.values() for k, v in g}
 CAT_LABEL.update({"jackets-coats": "Jackets & Coats", "tops": "Tops & Shirts"})
 SITEMAP = []
+CREDITS = json.loads((ROOT / "tools/photo_credits.json").read_text(encoding="utf-8"))
+
+# Alt text written from what each campaign photograph actually shows.
+CAMP_ALT = {
+    "hero-women": "A woman in an ivory blouse and grey headscarf stands before a draped blush-toned wall",
+    "hero-men": "A man in a camel coat over a black rollneck on a sunlit city street",
+    "seasonal-aw26": "A man in a tan corduroy jacket, wide-brimmed hat and wool scarf among autumn trees",
+    "signature": "A woman in a belted taupe long coat on minimalist stone steps",
+    "essentials": "A woman in a camel coat and sage knit dress leaning in a white doorway",
+    "evening": "A woman in a black satin gown with a high slit against a pale studio backdrop",
+    "tailored": "A woman in a blush trouser suit and black camisole against fallen autumn leaves",
+    "resort": "A woman in an oversized white linen shirt against a sunlit wall with palm shadows",
+    "seasonal": "A woman in a long grey wool coat in a softly lit corridor",
+    "editorial-noir": "Black-and-white portrait of a woman in a wide-brimmed black hat",
+    "editorial-silk": "Close study of ivory silk satin falling in soft folds",
+    "editorial-wool": "Close study of a black-and-white woven wool texture",
+    "atelier": "A tailor cuts tweed cloth by hand at a wooden workbench",
+}
 
 e = html.escape
 
@@ -215,12 +233,12 @@ def footer(rel):
         <li><a href="{rel}cart.html">Shopping Bag</a></li></ul></div>
       <div class="footer-col"><h2>The House</h2><ul>
         <li><a href="{rel}about.html">Our Story</a></li><li><a href="{rel}privacy.html">Privacy Policy</a></li>
-        <li><a href="{rel}terms.html">Terms &amp; Conditions</a></li><li><a href="{rel}sitemap.xml">Sitemap</a></li>
+        <li><a href="{rel}terms.html">Terms &amp; Conditions</a></li><li><a href="{rel}credits.html">Photo Credits</a></li><li><a href="{rel}sitemap.xml">Sitemap</a></li>
         <li><a href="{VA}" rel="noopener">Explore Virellion Apex</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p>© {year} ÉLVARÉ — a fictional brand. Demonstration website: products, prices, policies and transactions are simulated. No payments are taken.</p>
-      <p>Designed &amp; developed by <a href="{VA}" rel="noopener">Virellion Apex</a></p>
+      <p>Photography: <a href="{rel}credits.html">Unsplash contributors</a> · Designed &amp; developed by <a href="{VA}" rel="noopener">Virellion Apex</a></p>
     </div>
   </div>
 </footer>'''
@@ -345,11 +363,11 @@ def build_home():
     rel = ""
     new = sorted([p for p in PRODUCTS if p["isNew"]], key=lambda p: p["added"], reverse=True)
     best = sorted([p for p in PRODUCTS if p["bestseller"]], key=lambda p: -p["popularity"])[:8]
-    coll_cards = "".join(f'''<article class="collection-card reveal"><a class="tile" href="collections.html#{k}">{camp(rel, "collection-" + k, f"{t} campaign illustration — ÉLVARÉ")}
+    coll_cards = "".join(f'''<article class="collection-card reveal"><a class="tile" href="collections.html#{k}">{camp(rel, "collection-" + k, CAMP_ALT[k])}
       <div class="tile__label"><h3>{e(t)}</h3><p>{e(d)}</p><span class="link-arrow">Discover</span></div></a></article>''' for k, t, d in COLLECTIONS)
     body = f'''
 <section class="hero" aria-labelledby="hero-title">
-  {picture(rel, "hero-women", "hero-women-portrait", "Two figures in a camel belted coat and a black column dress stand in warm window light against a plaster wall — ÉLVARÉ Autumn–Winter 2026 campaign", eager=True)}
+  {picture(rel, "hero-women", "hero-women-portrait", CAMP_ALT["hero-women"] + " — ÉLVARÉ Autumn–Winter 2026 campaign", eager=True)}
   <div class="container hero__content">
     <span class="eyebrow">Autumn–Winter 2026 · The Quiet Hour</span>
     <h1 id="hero-title">The Art of <em>Modern</em> Luxury</h1>
@@ -378,9 +396,9 @@ def build_home():
 
 <section class="section section--tight" aria-label="Shop by department">
   <div class="container split">
-    <a class="tile reveal" href="women.html">{camp(rel, "hero-women-portrait", "Women's campaign — figures in tailored outerwear in a sunlit room", "(min-width: 600px) 50vw, 100vw", (600, 1100), 1100, 1400)}
+    <a class="tile reveal" href="women.html">{camp(rel, "hero-women-portrait", "Women's campaign — " + CAMP_ALT["hero-women"][0].lower() + CAMP_ALT["hero-women"][1:], "(min-width: 600px) 50vw, 100vw", (600, 1100), 1100, 1400)}
       <div class="tile__label"><span class="eyebrow">Women</span><h3>Fluid lines, precise tailoring</h3><span class="link-arrow">Shop Women</span></div></a>
-    <a class="tile reveal" href="men.html">{camp(rel, "hero-men-portrait", "Men's campaign — two figures in charcoal and camel coats beside arched doorways", "(min-width: 600px) 50vw, 100vw", (600, 1100), 1100, 1400)}
+    <a class="tile reveal" href="men.html">{camp(rel, "hero-men-portrait", "Men's campaign — " + CAMP_ALT["hero-men"][0].lower() + CAMP_ALT["hero-men"][1:], "(min-width: 600px) 50vw, 100vw", (600, 1100), 1100, 1400)}
       <div class="tile__label"><span class="eyebrow">Men</span><h3>Relaxed structure, enduring form</h3><span class="link-arrow">Shop Men</span></div></a>
   </div>
 </section>
@@ -393,7 +411,7 @@ def build_home():
 </section>
 
 <section class="campaign" aria-labelledby="season-title">
-  {img(rel, "assets/img/campaign/seasonal-aw26", "A lone figure in a champagne belted coat stands in a shaft of light in a darkened room", "100vw", (800, 1600, 2400), 2400, 1200)}
+  {img(rel, "assets/img/campaign/seasonal-aw26", CAMP_ALT["seasonal-aw26"], "100vw", (800, 1600, 2400), 2400, 1200)}
   <div class="container"><div class="campaign__content reveal">
     <span class="eyebrow">Seasonal Campaign</span>
     <h2 id="season-title">The Quiet Hour</h2>
@@ -412,8 +430,8 @@ def build_home():
 <section class="section" aria-labelledby="ed-title">
   <div class="container editorial">
     <div class="editorial__images reveal">
-      {camp(rel, "editorial-silk", "Close study of champagne silk satin falling in soft folds", "(min-width: 900px) 27vw, 50vw")}
-      {camp(rel, "editorial-wool", "Close study of camel wool draped in deep folds", "(min-width: 900px) 27vw, 50vw")}
+      {camp(rel, "editorial-silk", CAMP_ALT["editorial-silk"], "(min-width: 900px) 27vw, 50vw")}
+      {camp(rel, "editorial-wool", CAMP_ALT["editorial-wool"], "(min-width: 900px) 27vw, 50vw")}
     </div>
     <div class="reveal">
       <span class="eyebrow">The Edit</span>
@@ -537,7 +555,7 @@ def build_collections():
         sections.append(f'''<section class="section{' section--white' if i % 2 == 0 else ''}" id="{k}" aria-labelledby="c-{k}">
   <div class="container">
     <div class="editorial" style="margin-bottom:3rem">
-      <a class="tile reveal" href="shop.html?collection={k}">{camp(rel, "collection-" + k, f"{t} — campaign illustration", "(min-width: 900px) 50vw, 100vw")}<div class="tile__label"><span class="link-arrow">Shop the collection</span></div></a>
+      <a class="tile reveal" href="shop.html?collection={k}">{camp(rel, "collection-" + k, CAMP_ALT[k], "(min-width: 900px) 50vw, 100vw")}<div class="tile__label"><span class="link-arrow">Shop the collection</span></div></a>
       <div class="reveal"><span class="eyebrow">Collection {i + 1:02d} · {len(items)} pieces</span><h2 id="c-{k}" class="display">{e(t)}</h2><p class="lede">{e(d)}</p>
         <a class="btn" href="shop.html?collection={k}">Shop {e(t)}</a></div>
     </div>
@@ -546,7 +564,7 @@ def build_collections():
   </div>
 </section>''')
     nav = "".join(f'<a class="chip" href="#{k}">{e(t)}</a>' for k, t, _ in COLLECTIONS)
-    body = f'''<section class="hero hero--page" aria-labelledby="page-title">{picture(rel, "seasonal-aw26", "hero-women-portrait", "Figure in a champagne coat in a shaft of evening light — ÉLVARÉ collections", eager=True)}
+    body = f'''<section class="hero hero--page" aria-labelledby="page-title">{picture(rel, "seasonal-aw26", "hero-women-portrait", CAMP_ALT["seasonal-aw26"] + " — ÉLVARÉ collections", eager=True)}
 <div class="container hero__content">{breadcrumb(rel, [("Home", "index.html"), ("Collections", None)]).replace('class="breadcrumb"', 'class="breadcrumb" style="color:rgba(245,241,233,.8)"')}<span class="eyebrow">Curated by the House</span><h1 id="page-title">Collections</h1><p>Six curated edits, each composed around a mood, a moment and a way of dressing.</p></div></section>
 <nav class="section--tight" aria-label="Collections"><div class="container cat-tabs" style="margin:0;padding-top:1.5rem">{nav}</div></nav>
 {"".join(sections)}'''
@@ -562,7 +580,7 @@ def build_product(p):
     gname = "Women" if p["gender"] == "women" else "Men"
     cat = CAT_LABEL[p["category"]]
     c0 = p["colors"][0]
-    views = [(p["image"], alt_text(p)), (f"assets/img/products/{p['slug']}-alt", alt_text(p, view=", alternate studio view")),
+    views = [(p["image"], alt_text(p)), (f"assets/img/products/{p['slug']}-alt", alt_text(p, view=", alternate view")),
              (f"assets/img/products/{p['slug']}-detail", alt_text(p, view=", fabric and construction detail"))]
     thumbs = "".join(f'<button type="button" data-thumb="{i}" aria-label="View image {i + 1}"{" aria-current=\"true\"" if i == 0 else ""}>{img(rel, v[0], "", "90px", (480,), 480, 600)}</button>' for i, v in enumerate(views))
     swatches = "".join(f'<button class="color-swatch" type="button" role="radio" aria-checked="{"true" if i == 0 else "false"}" data-color="{c["name"]}" data-key="{c["key"]}" style="background-color:{c["hex"]}" aria-label="{c["name"]}"></button>' for i, c in enumerate(p["colors"]))
@@ -641,13 +659,13 @@ def build_product(p):
 def build_simple_pages():
     rel = ""
     # ---------------- Our Story
-    body = f'''<section class="hero hero--page" aria-labelledby="page-title">{picture(rel, "hero-men", "hero-men-portrait", "Two figures in tailored coats beside arched doorways in soft light", eager=True)}
+    body = f'''<section class="hero hero--page" aria-labelledby="page-title">{picture(rel, "hero-men", "hero-men-portrait", CAMP_ALT["hero-men"], eager=True)}
 <div class="container hero__content">{breadcrumb(rel, [("Home", "index.html"), ("Our Story", None)]).replace('class="breadcrumb"', 'class="breadcrumb" style="color:rgba(245,241,233,.8)"')}<span class="eyebrow">The House</span><h1 id="page-title">Our Story</h1><p>A fashion house founded on proportion, restraint and the belief that true luxury is felt before it is seen.</p></div></section>
 <section class="section"><div class="container editorial">
   <div class="reveal"><span class="eyebrow">Philosophy</span><h2 class="display">Less, considered more deeply.</h2>
     <p class="lede">ÉLVARÉ began with a simple conviction: a wardrobe should be built, not accumulated. Every collection is an exercise in editing — refining the silhouettes that matter until each one feels inevitable.</p>
     <p>The name joins two ideas the house returns to in every season: <em>élan</em>, the ease of movement, and <em>rare</em>, the quiet distinction of things made with intent. Our clothes are designed to move with the body, to be worn for years and to grow more personal with time.</p></div>
-  <div class="reveal">{camp(rel, "atelier", "A figure in an ivory coat stands in an arched niche lit by afternoon sun", "(min-width: 900px) 45vw, 100vw")}</div>
+  <div class="reveal">{camp(rel, "atelier", CAMP_ALT["atelier"], "(min-width: 900px) 45vw, 100vw")}</div>
 </div></section>
 <section class="section section--white"><div class="container">
   <div class="center" style="margin-bottom:3rem"><span class="eyebrow">How we design</span><h2 class="display">Three principles</h2></div>
@@ -658,7 +676,7 @@ def build_simple_pages():
   </div>
 </div></section>
 <section class="section"><div class="container editorial">
-  <div class="editorial__images reveal">{camp(rel, "editorial-noir", "Close study of black satin with a soft sheen", "(min-width: 900px) 27vw, 50vw")}{camp(rel, "collection-tailored", "Figure in a charcoal coat and matching trousers in an arched room", "(min-width: 900px) 27vw, 50vw")}</div>
+  <div class="editorial__images reveal">{camp(rel, "editorial-noir", CAMP_ALT["editorial-noir"], "(min-width: 900px) 27vw, 50vw")}{camp(rel, "collection-tailored", CAMP_ALT["tailored"], "(min-width: 900px) 27vw, 50vw")}</div>
   <div class="reveal"><span class="eyebrow">Craft &amp; inspiration</span><h2 class="display">Inspired by the atelier.</h2>
     <p>The house draws on the traditions of the tailoring atelier: precise pattern-cutting, careful finishing and garments considered from the inside out. Our design language is shaped by architecture — arched windows, plaster walls, and the way light travels across a room through the day.</p>
     <p>That is why the ÉLVARÉ monogram sits within an arch: a reminder that every piece should frame the person wearing it, rather than the other way around.</p>
@@ -666,7 +684,7 @@ def build_simple_pages():
 </div></section>
 <section class="section section--dark"><div class="container narrow center">
   <span class="eyebrow">A note on this website</span><h2>A demonstration fashion house</h2>
-  <p class="lede" style="margin-inline:auto">ÉLVARÉ is a fictional brand created by Virellion Apex as Portfolio Project 02. Its story, products and policies are illustrative. We make no claims about real manufacturing locations, certifications or sustainability credentials.</p>
+  <p class="lede" style="margin-inline:auto">ÉLVARÉ is a fictional brand created by Virellion Apex as Portfolio Project 02. Its story, products and policies are illustrative, and its photography is licensed stock (see <a class="text-link" href="credits.html" style="color:inherit">Photo Credits</a>). We make no claims about real manufacturing locations, certifications or sustainability credentials.</p>
   <div class="hero__ctas" style="justify-content:center"><a class="btn btn--light" href="collections.html">Explore the collections</a><a class="btn btn--outline-light" href="{VA}" rel="noopener">Explore Virellion Apex</a></div>
 </div></section>'''
     page("about.html", "Our Story — The House of ÉLVARÉ", "Discover the philosophy, design direction and atelier-inspired craft behind ÉLVARÉ, a contemporary luxury fashion house for women and men.",
@@ -762,10 +780,10 @@ def build_simple_pages():
     body = f'''<section class="page-head"><div class="container">{breadcrumb(rel, [("Home", "index.html"), ("Terms & Conditions", None)])}<span class="eyebrow">Legal</span><h1>Terms &amp; Conditions</h1><p class="lede">Last updated {BUILD_DATE}. Terms for the ÉLVARÉ demonstration store.</p></div></section>
 <section class="section section--tight"><div class="container prose">
   <div class="notice"><strong>Important:</strong> ÉLVARÉ is a fictional brand and this is a demonstration website. No products are for sale and no contract of sale is formed by using it.</div>
-  <h2>1. Purpose of this website</h2><p>This website was created by Virellion Apex to demonstrate luxury e-commerce design and development. All brand names, product names, descriptions, images, prices and policies are fictional or illustrative.</p>
+  <h2>1. Purpose of this website</h2><p>This website was created by Virellion Apex to demonstrate luxury e-commerce design and development. All brand names, product names, descriptions, prices and policies are fictional or illustrative. Photographs are free-licence stock images from Unsplash used for demonstration; the garments shown are by other makers and are not for sale (see <a class="text-link" href="credits.html">Photo Credits</a>).</p>
   <h2>2. Simulated orders</h2><ul><li>Orders placed through checkout are simulations. No goods will be delivered.</li><li>No payment is requested, collected or processed. Never enter real card details anywhere on this website — none are requested.</li><li>Order numbers and receipts are generated in your browser for demonstration only and have no commercial value.</li></ul>
   <h2>3. Pricing and availability</h2><p>Prices are shown in US dollars and are illustrative. Availability labels (in stock, low stock, pre-order) are part of the demonstration and do not reflect real inventory.</p>
-  <h2>4. Intellectual property</h2><p>The ÉLVARÉ name, logo, monogram, imagery and website design were created for this demonstration. They may not be reproduced for commercial purposes without permission from Virellion Apex. No third-party brand names or logos are used.</p>
+  <h2>4. Intellectual property</h2><p>The ÉLVARÉ name, logo, monogram and website design were created for this demonstration. They may not be reproduced for commercial purposes without permission from Virellion Apex. Photographs remain the work of their photographers and are used under the Unsplash License; each was checked so that no third-party brand names or logos are visible.</p>
   <h2>5. Acceptable use</h2><p>Please do not attempt to disrupt the website or use it to misrepresent the existence of a real store.</p>
   <h2>6. Liability</h2><p>The website is provided "as is" for demonstration. To the extent permitted by law, no liability is accepted for reliance on its fictional content.</p>
   <h2>7. Contact</h2><p>Questions about this demonstration can be directed to <a class="text-link" href="{VA}" rel="noopener">Virellion Apex</a>.</p>
@@ -823,6 +841,26 @@ def write_data():
     (ROOT / "assets/js/products.js").write_text(js)
 
 
+def build_credits():
+    rel = ""
+    rows = []
+    for c in sorted(CREDITS["photos"], key=lambda c: c["photographer"].lower()):
+        used = "; ".join(c["used_for"])
+        rows.append(f'<tr><td><a class="text-link" href="{e(c["url"])}" rel="noopener">{e(c["photographer"])}</a></td><td>{e(used)}</td></tr>')
+    n = len(CREDITS["photos"])
+    body = f'''<section class="page-head"><div class="container">{breadcrumb(rel, [("Home", "index.html"), ("Photo Credits", None)])}<span class="eyebrow">The House</span><h1>Photo Credits</h1><p class="lede">The {n} photographs on this demonstration website are free-licence images from Unsplash. Thank you to every photographer below.</p></div></section>
+<section class="section section--tight"><div class="container prose">
+  <div class="notice"><strong>About the imagery.</strong> {e(CREDITS["note"])}</div>
+  <p>Photos are self-hosted, cropped and compressed for the web. Product galleries also use closer crops of the same photograph for the alternate and detail views. Each link opens the original photo on Unsplash.</p>
+  <div class="table-wrap"><table class="size-table"><caption class="visually-hidden">Photographer credits</caption><thead><tr><th scope="col">Photographer</th><th scope="col">Used for</th></tr></thead><tbody>
+  {"".join(rows)}
+  </tbody></table></div>
+  <p>Licence: <a class="text-link" href="https://unsplash.com/license" rel="noopener">Unsplash License</a>. For a real client launch, replace these with the brand's own campaign and product photography, keeping the same file names.</p>
+</div></section>'''
+    page("credits.html", "Photo Credits", "Photographer credits for the free-licence Unsplash photography used on the ÉLVARÉ demonstration store.", body, "",
+         [crumb_ld([("Home", ""), ("Photo Credits", "credits.html")])], priority="0.2")
+
+
 def write_seo():
     urls = "".join(f"  <url><loc>{BASE_URL}{'' if pth == 'index.html' else pth}</loc><lastmod>{BUILD_DATE}</lastmod><priority>{pr}</priority></url>\n" for pth, pr in SITEMAP)
     (ROOT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
@@ -842,15 +880,16 @@ if __name__ == "__main__":
     build_home()
     build_listing("women.html", "women", "Women's Luxury Fashion — Dresses, Coats, Tailoring & Knitwear", "Women",
                   "Silk dresses, double-faced wool coats, precise tailoring, cashmere-blend knitwear and leather accessories.",
-                  ("hero-women", "hero-women-portrait", "Figures in a camel coat and black dress in warm window light"), "The Women's Collection")
+                  ("hero-women", "hero-women-portrait", CAMP_ALT["hero-women"]), "The Women's Collection")
     build_listing("men.html", "men", "Men's Luxury Fashion — Overcoats, Tailoring, Shirts & Knitwear", "Men",
                   "Camel overcoats, unstructured tailoring, Oxford shirts, merino knitwear and leather accessories.",
-                  ("hero-men", "hero-men-portrait", "Two figures in charcoal and camel coats beside arched doorways"), "The Men's Collection")
+                  ("hero-men", "hero-men-portrait", CAMP_ALT["hero-men"]), "The Men's Collection")
     build_listing("shop.html", "all", "Shop All — Luxury Fashion for Women & Men", "Shop All",
                   "The complete ÉLVARÉ collection for women and men.", None, "Women & Men")
     build_collections()
     for p in PRODUCTS:
         build_product(p)
     build_simple_pages()
+    build_credits()
     write_seo()
     print("pages:", len(SITEMAP), "indexed +", "cart, wishlist, checkout, 404")

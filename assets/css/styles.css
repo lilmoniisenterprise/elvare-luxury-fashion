@@ -223,6 +223,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .split { display: grid; gap: .9rem; }
 .tile { position: relative; display: block; overflow: hidden; color: var(--ivory); background: var(--charcoal); aspect-ratio: 4 / 5; }
 .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
+.tile img[src*="hero-men-portrait"] { object-position: center 12%; }
 .tile:hover img { transform: scale(1.035); }
 .tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 38%, rgba(17,17,17,.35) 58%, rgba(17,17,17,.82)); }
 .tile__label { position: absolute; z-index: 2; left: clamp(1.25rem, 3vw, 2.25rem); right: 1.25rem; bottom: clamp(1.25rem, 3vw, 2.25rem); }

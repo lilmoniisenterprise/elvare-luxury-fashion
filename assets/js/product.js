@@ -14,7 +14,7 @@
   function views() {
     return [
       { src: base + '-' + state.color.key, alt: p.name + ' in ' + state.color.name },
-      { src: base + '-alt', alt: p.name + ' in ' + p.colors[0].name + ', alternate studio view' },
+      { src: base + '-alt', alt: p.name + ' in ' + p.colors[0].name + ', alternate view' },
       { src: base + '-detail', alt: p.name + ', fabric and construction detail' }
     ];
   }

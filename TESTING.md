@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| Run at | 2026-11-06 04:00:43 (build environment clock) |
+| Run at | 2026-11-06 05:14:34 (build environment clock) |
 | Browser | Google Chrome (headless) via Playwright |
 | Served from | `http://localhost:8766/elvare-luxury-fashion/` (local static server mirroring the GitHub Pages project path) |
 | Viewports | Mobile 375×812 (touch), Tablet 768×1024 (touch), Desktop 1440×900 |
-| Duration | 196.3 s |
+| Duration | 196.4 s |
 | Raw results | `tools/qa_results.json` · Suite: `tools/qa_test.py` |
 
 ## What was tested
@@ -17,7 +17,7 @@ All results below come from the automated suite actually executed against the bu
 
 | Area | Check | Result |
 |---|---|---|
-| Pages | 46 HTML files found | ✅ Pass |
+| Pages | 47 HTML files found | ✅ Pass |
 | Pages | All pages return 200 with no failed requests (mobile) | ✅ Pass |
 | JavaScript | No console/page errors on any page (mobile) | ✅ Pass |
 | Responsive | No horizontal overflow on any page (mobile 375px) | ✅ Pass |
@@ -28,7 +28,7 @@ All results below come from the automated suite actually executed against the bu
 | JavaScript | No console/page errors on any page (desktop) | ✅ Pass |
 | Responsive | No horizontal overflow on any page (desktop 1440px) | ✅ Pass |
 | Images | All rendered images load after scrolling (desktop) | ✅ Pass |
-| Links | All 46 unique internal link targets resolve | ✅ Pass |
+| Links | All 47 unique internal link targets resolve | ✅ Pass |
 | Links | External CTAs point only to virellionapex.com | ✅ Pass |
 | Browse | Women page lists 16 products | ✅ Pass |
 | Category nav | Dresses tab shows only dresses (3) | ✅ Pass |
@@ -44,7 +44,7 @@ All results below come from the automated suite actually executed against the bu
 | Filtering | Clear filters restores all 16 | ✅ Pass |
 | Category nav | Men ?cat=outerwear deep link restores filter (2 coats) | ✅ Pass |
 | Collections | shop.html?collection=evening shows the Evening Edit | ✅ Pass |
-| Search | Search 'coat' returns coats | ✅ Pass |
+| Search | Search 'coat' returns the coats first | ✅ Pass |
 | Search | Search 'silk' returns silk pieces | ✅ Pass |
 | Search | Search with no match shows empty state | ✅ Pass |
 | Search | Header search overlay shows live suggestions | ✅ Pass |
