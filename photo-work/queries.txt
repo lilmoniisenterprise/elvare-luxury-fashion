@@ -1,0 +1,46 @@
+# slot|query   (portrait unless slot starts with "wide-")
+celeste-silk-slip-dress|satin slip dress
+isaure-column-dress|black long sleeve maxi dress
+aurelle-wrap-midi-dress|wrap midi dress
+solenne-poplin-shirt|woman oversized white shirt
+ines-silk-blouse|silk blouse woman
+valere-double-faced-wool-coat|woman long wool coat
+riviera-cropped-tailored-jacket|woman cropped blazer
+alba-wide-leg-trouser|wide leg trousers woman
+lise-cigarette-trouser|woman black slim trousers
+noor-cashmere-blend-crewneck|woman cashmere sweater
+odile-ribbed-cardigan|ribbed cardigan woman
+sabine-satin-midi-skirt|satin midi skirt
+margaux-pleated-wool-skirt|pleated midi skirt
+etoile-top-handle-bag|leather top handle bag
+lumen-silk-square-scarf|silk scarf
+arc-pointed-leather-mule|pointed leather mules
+ferrand-oxford-shirt|man oxford shirt
+delmar-linen-camp-shirt|man linen short sleeve shirt
+essential-pima-tee|man plain t-shirt
+heavyweight-mock-neck-tee|man mock neck
+rivoli-pleated-wool-trouser|men pleated trousers
+corso-tapered-chino|men chinos
+bastien-unstructured-blazer|man blazer
+halden-suede-overshirt-jacket|man suede jacket
+aldric-merino-rollneck|man turtleneck
+teodor-cable-cardigan|man cable knit cardigan
+varenne-camel-overcoat|man camel overcoat
+harbor-quilted-field-coat|man quilted jacket
+ledger-leather-belt|leather belt
+saline-leather-derby|leather derby shoes
+cassis-wool-cashmere-scarf|man wool scarf
+atelier-card-holder|leather card holder
+wide-hero-women|woman fashion editorial minimal
+wide-hero-men|man fashion editorial tailoring
+wide-seasonal-aw26|autumn fashion coat
+collection-evening|evening dress fashion
+collection-resort|resort fashion linen
+collection-tailored|tailored suit fashion
+collection-signature|luxury fashion model
+collection-essentials|minimal neutral outfit
+collection-seasonal|wool coat autumn woman
+editorial-noir|black and white fashion
+editorial-silk|silk fabric close up
+editorial-wool|wool fabric texture
+atelier|tailor atelier
