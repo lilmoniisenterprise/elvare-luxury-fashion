@@ -16,6 +16,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BASE_URL = "https://lilmoniisenterprise.github.io/elvare-luxury-fashion/"
 BASE_PATH = "/elvare-luxury-fashion/"   # used only by 404.html, which GitHub Pages serves at any depth
 VA = "https://virellionapex.com"
+CAL = "https://calendly.com/virellionapex/free-consultation"
 VERSION = "1.1.0"
 BUILD_DATE = "2026-11-06"
 
@@ -210,8 +211,8 @@ def footer(rel):
       <p>ÉLVARÉ is a fictional fashion house designed and developed by Virellion Apex to demonstrate luxury brand development, e-commerce UX and responsive web engineering.</p>
     </div>
     <div class="va-band__ctas">
-      <a class="btn btn--gold" href="{VA}" rel="noopener">Request a Similar Website</a>
-      <a class="btn btn--outline-light" href="{VA}" rel="noopener">Schedule a Consultation</a>
+      <a class="btn btn--gold" href="{CAL}" rel="noopener">Request a Similar Website</a>
+      <a class="btn btn--outline-light" href="{CAL}" rel="noopener">Schedule a Consultation</a>
     </div>
   </div>
 </section>

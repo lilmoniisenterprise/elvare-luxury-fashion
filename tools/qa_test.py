@@ -104,7 +104,7 @@ def test_pages_and_links(browser):
     for path in ["index.html", "about.html"]:
         pg.goto(BASE + path)
         ext |= set(pg.evaluate("Array.from(document.querySelectorAll('a[href^=\"http\"]')).map(a => a.href)"))
-    record("Links", "External CTAs point only to virellionapex.com", all(e.startswith("https://virellionapex.com") for e in ext), ext)
+    record("Links", "External CTAs point only to virellionapex.com or the Calendly consultation link", all(e.startswith(("https://virellionapex.com","https://calendly.com/virellionapex/")) for e in ext), ext)
     ctx.close()
 
 
